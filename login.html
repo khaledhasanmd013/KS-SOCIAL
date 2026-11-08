@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -74,7 +75,9 @@
       font-size: 14px;
     }
 
-    .login-links a {
+    .login-links a,
+    .back-home,
+    .recovery-link {
       color: #1769e0;
       text-decoration: none;
       font-weight: bold;
@@ -84,8 +87,16 @@
       display: block;
       text-align: center;
       margin-top: 20px;
-      color: #1769e0;
-      text-decoration: none;
+    }
+
+    .recovery-area {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    #recoveryMessage {
+      font-size: 14px;
+      overflow-wrap: anywhere;
     }
   </style>
 </head>
@@ -93,17 +104,14 @@
 <body>
 
   <main class="login-page">
-
     <div class="login-box">
 
       <h1>K.S SOCIAL</h1>
-
       <p>Welcome back! Login to your account.</p>
 
       <form id="loginForm">
 
         <label for="phone">Mobile Number</label>
-
         <input
           type="tel"
           id="phone"
@@ -112,7 +120,6 @@
         >
 
         <label for="password">Password</label>
-
         <input
           type="password"
           id="password"
@@ -131,14 +138,63 @@
         <a href="register.html">Register</a>
       </div>
 
+      <div class="recovery-area">
+        <a href="#" id="forgotPassword" class="recovery-link">
+          Owner Password ভুলে গেছ?
+        </a>
+        <p id="recoveryMessage" role="status"></p>
+      </div>
+
       <a href="index.html" class="back-home">
         ← Back to Home
       </a>
 
     </div>
-
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+
+  <script>
+    const OWNER_EMAIL = "khaledhasanmd013@gmail.com";
+
+    document.getElementById("forgotPassword")
+      .addEventListener("click", async function(event) {
+        event.preventDefault();
+
+        const message =
+          document.getElementById("recoveryMessage");
+
+        if (!window.ksSupabase) {
+          message.textContent =
+            "Supabase connection পাওয়া যায়নি।";
+          return;
+        }
+
+        message.textContent =
+          "Password Reset Link পাঠানোর চেষ্টা হচ্ছে...";
+
+        try {
+          const { error } =
+            await window.ksSupabase.auth.resetPasswordForEmail(
+              OWNER_EMAIL,
+              {
+                redirectTo:
+                  "https://khaledhasanmd013.github.io/KS-SOCIAL/"
+              }
+            );
+
+          if (error) throw error;
+
+          message.textContent =
+            "অনুরোধ সফল হয়েছে। Owner Email-এর Inbox দেখো।";
+
+        } catch (error) {
+          message.textContent =
+            "সমস্যা হয়েছে: " + error.message;
+        }
+      });
+  </script>
 
 </body>
 </html>
-
