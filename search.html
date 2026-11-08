@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #26354d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1769e0, #55a1ff);
+      color: white;
+      padding: 35px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d5deeb;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #1769e0;
+    }
+
+    .search-box button {
+      background: #1769e0;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .search-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px;
+      border: 1px solid #e5eaf2;
+      border-radius: 10px;
+      margin-top: 12px;
+    }
+
+    .search-icon {
+      font-size: 28px;
+    }
+
+    .search-option h3 {
+      margin: 0;
+      color: #1769e0;
+    }
+
+    .search-option p {
+      margin: 3px 0 0;
+      color: #68758a;
+      font-size: 14px;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="friends.html">Friends</a>
+    <a href="groups.html">Groups</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>🔎 Search K.S SOCIAL</h1>
+    <p>সদস্য, পোস্ট ও কমিউনিটি খুঁজে নাও।</p>
+  </section>
+
+  <section class="card">
+    <h2>Search Anything</h2>
+
+    <div class="search-box">
+      <input
+        type="search"
+        placeholder="নাম, পোস্ট বা গ্রুপ লিখুন..."
+        disabled
+      >
+      <button disabled>Search</button>
+    </div>
+
+    <p>কী খুঁজতে চাও?</p>
+
+    <select disabled>
+      <option>সবকিছু</option>
+      <option>Members</option>
+      <option>Posts</option>
+      <option>Groups</option>
+    </select>
+  </section>
+
+  <section class="card">
+    <h2>🔍 Search Categories</h2>
+
+    <div class="search-option">
+      <div class="search-icon">👤</div>
+      <div>
+        <h3>Find Members</h3>
+        <p>কমিউনিটির সদস্যদের খুঁজে পাওয়ার সুবিধা।</p>
+      </div>
+    </div>
+
+    <div class="search-option">
+      <div class="search-icon">📝</div>
+      <div>
+        <h3>Find Posts</h3>
+        <p>বিভিন্ন সদস্যের পোস্ট খুঁজে পাওয়ার সুবিধা।</p>
+      </div>
+    </div>
+
+    <div class="search-option">
+      <div class="search-icon">👥</div>
+      <div>
+        <h3>Find Groups</h3>
+        <p>পছন্দের কমিউনিটি গ্রুপ খুঁজে পাওয়ার সুবিধা।</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🛡️ Search Privacy</h2>
+    <ul>
+      <li>সদস্যদের ফোন নম্বর ব্যক্তিগত থাকবে।</li>
+      <li>ফোন নম্বর দিয়ে খোঁজার সুবিধা চালু হলে সদস্যদের সম্মতি ও Privacy Settings মানতে হবে।</li>
+      <li>অনুমতি ছাড়া ব্যক্তিগত তথ্য প্রকাশ করা যাবে না।</li>
+    </ul>
+  </section>
+
+  <section class="notice">
+    <strong>Demo Notice:</strong>
+    এই পেজটি বর্তমানে শুধু ডিজাইন।
+    Search Box ও Filter এখনো কাজ করে না।
+    বাস্তব Search চালু করতে নিরাপদ Backend ও Database প্রয়োজন।
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 K.S SOCIAL. All Rights Reserved.</p>
+  <p>Connect • Share • Communicate</p>
+</footer>
+
+</body>
+</html>
