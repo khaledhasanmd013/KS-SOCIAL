@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #f0f4fa;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .topbar {
+      background: #1769e0;
+      color: white;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .dashboard {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: 220px 1fr 220px;
+      gap: 18px;
+    }
+
+    .panel, .feed-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .panel a {
+      display: block;
+      color: #1769e0;
+      text-decoration: none;
+      padding: 10px 0;
+    }
+
+    .feed-card h3 {
+      margin-top: 0;
+      color: #1769e0;
+    }
+
+    .post-input {
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 85px;
+      padding: 12px;
+      border: 1px solid #ccd5e2;
+      border-radius: 8px;
+      resize: vertical;
+      font: inherit;
+    }
+
+    .post-button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 7px;
+      background: #1769e0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .post-button:hover {
+      background: #0d50b5;
+    }
+
+    .notice {
+      background: #fff8df;
+      padding: 12px;
+      border-radius: 8px;
+      color: #765500;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <h2>K.S SOCIAL</h2>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+
+    <aside>
+      <div class="panel">
+        <h3>Menu</h3>
+        <a href="profile.html">👤 My Profile</a>
+        <a href="#feed">📰 News Feed</a>
+        <a href="#messages">💬 Messages</a>
+        <a href="#notifications">🔔 Notifications</a>
+        <a href="contact.html">📞 Contact Admin</a>
+        <a href="index.html">🏠 Home</a>
+      </div>
+    </aside>
+
+    <section>
+
+      <div class="feed-card">
+        <h3>Create a Post</h3>
+
+        <textarea
+          class="post-input"
+          placeholder="What's on your mind?"
+          disabled
+        ></textarea>
+
+        <button class="post-button" disabled>
+          Publish Post
+        </button>
+
+        <p class="notice">
+          পোস্ট করার সুবিধা এখনো চালু হয়নি। Backend তৈরি হলে এটি কাজ করবে।
+        </p>
+      </div>
+
+      <div class="feed-card" id="feed">
+        <h3>📰 News Feed</h3>
+        <p>Welcome to K.S SOCIAL!</p>
+        <p>এখানে সদস্যদের পোস্ট দেখা যাবে।</p>
+        <p class="notice">
+          এখনো কোনো বাস্তব পোস্ট দেখানো হচ্ছে না।
+        </p>
+      </div>
+
+      <div class="feed-card" id="messages">
+        <h3>💬 Messages</h3>
+        <p>এখানে বন্ধুদের সঙ্গে কথোপকথন দেখা যাবে।</p>
+        <p class="notice">Messaging সুবিধা এখনো চালু হয়নি।</p>
+      </div>
+
+    </section>
+
+    <aside>
+      <div class="panel" id="notifications">
+        <h3>🔔 Notifications</h3>
+        <p>এখনো কোনো Notification নেই।</p>
+      </div>
+
+      <div class="panel">
+        <h3>👥 Friends</h3>
+        <p>এখানে তোমার বন্ধুদের তালিকা থাকবে।</p>
+      </div>
+
+      <div class="panel">
+        <h3>🔒 Privacy</h3>
+        <p>সদস্যদের ব্যক্তিগত তথ্য সুরক্ষিত রাখার ব্যবস্থা পরে যুক্ত হবে।</p>
+      </div>
+
+    </aside>
+
+  </main>
+
+</body>
+</html>
