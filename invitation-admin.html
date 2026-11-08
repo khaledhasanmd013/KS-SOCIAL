@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Admin - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="register-page">
+    <section class="register-box">
+      <h1>K.S SOCIAL</h1>
+      <h2>Invitation Management</h2>
+
+      <p>শুধু অনুমোদিত Admin এই পেজ ব্যবহার করতে পারবেন।</p>
+
+      <button
+        type="button"
+        class="register-submit"
+        onclick="createInvitation()">
+        Create Invitation
+      </button>
+
+      <p id="invitationMessage"></p>
+
+      <div class="register-links">
+        <a href="admin.html">Back to Admin Dashboard</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="create-invitation.js"></script>
+
+</body>
+</html>
