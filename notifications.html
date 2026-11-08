@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .notification-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: #e4efff;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+    }
+
+    .notification-card h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .notification-card p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .unread {
+      border-left: 5px solid #1769e0;
+    }
+
+    .notice {
+      background: #fff8df;
+      color: #765500;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .clear-button {
+      padding: 10px 16px;
+      background: #d93636;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 550px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      header nav a {
+        margin: 0 10px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>K.S SOCIAL</h2>
+
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="friends.html">Friends</a>
+      <a href="messages.html">Messages</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <h2>🔔 Notifications</h2>
+
+    <button class="clear-button" type="button" disabled>
+      Clear All
+    </button>
+
+    <div class="notification-card unread">
+      <div class="icon">👥</div>
+      <div>
+        <h3>Friend Request</h3>
+        <p>New friend requests will appear here.</p>
+      </div>
+    </div>
+
+    <div class="notification-card unread">
+      <div class="icon">💬</div>
+      <div>
+        <h3>New Message</h3>
+        <p>New messages from friends will appear here.</p>
+      </div>
+    </div>
+
+    <div class="notification-card">
+      <div class="icon">❤️</div>
+      <div>
+        <h3>Post Like</h3>
+        <p>Likes on your posts will appear here.</p>
+      </div>
+    </div>
+
+    <div class="notification-card">
+      <div class="icon">💭</div>
+      <div>
+        <h3>New Comment</h3>
+        <p>Comments on your posts will appear here.</p>
+      </div>
+    </div>
+
+    <div class="notification-card">
+      <div class="icon">📢</div>
+      <div>
+        <h3>Admin Announcement</h3>
+        <p>Important announcements from K.S SOCIAL Admin.</p>
+      </div>
+    </div>
+
+    <p class="notice">
+      Notifications are currently sample designs. Real-time notifications will be added after backend development.
+    </p>
+
+  </main>
+
+</body>
+</html>
