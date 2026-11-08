@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #26354d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1769e0, #55a1ff);
+      color: white;
+      padding: 38px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    .event {
+      border: 1px solid #e5eaf2;
+      border-radius: 10px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .event h3 {
+      color: #1769e0;
+      margin-top: 0;
+    }
+
+    .event-meta {
+      color: #68758a;
+      font-size: 14px;
+    }
+
+    .event-label {
+      display: inline-block;
+      background: #e8f1ff;
+      color: #1769e0;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background: #1769e0;
+      color: white;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 7px;
+      margin-top: 10px;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="meeting.html">Meetings</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>🎉 Community Events</h1>
+    <p>একসঙ্গে যুক্ত হই, নতুন অভিজ্ঞতা তৈরি করি।</p>
+  </section>
+
+  <section class="card">
+    <h2>📅 Upcoming Events</h2>
+
+    <article class="event">
+      <span class="event-label">Demo Event</span>
+      <h3>🌐 K.S SOCIAL Community Meetup</h3>
+      <p>সদস্যদের পরিচিতি ও কমিউনিটি আলোচনা।</p>
+      <p class="event-meta">তারিখ: এখনো নির্ধারিত হয়নি</p>
+      <p class="event-meta">সময়: এখনো নির্ধারিত হয়নি</p>
+      <button disabled>Join Event</button>
+    </article>
+
+    <article class="event">
+      <span class="event-label">Demo Event</span>
+      <h3>💻 Online Learning Session</h3>
+      <p>প্রযুক্তি ও নতুন দক্ষতা নিয়ে অনলাইন আলোচনা।</p>
+      <p class="event-meta">তারিখ: এখনো নির্ধারিত হয়নি</p>
+      <p class="event-meta">সময়: এখনো নির্ধারিত হয়নি</p>
+      <button disabled>Join Event</button>
+    </article>
+
+    <article class="event">
+      <span class="event-label">Demo Event</span>
+      <h3>🤝 Friends Gathering</h3>
+      <p>সদস্যদের মধ্যে বন্ধুত্বপূর্ণ আলোচনা।</p>
+      <p class="event-meta">তারিখ: এখনো নির্ধারিত হয়নি</p>
+      <p class="event-meta">সময়: এখনো নির্ধারিত হয়নি</p>
+      <button disabled>Join Event</button>
+    </article>
+  </section>
+
+  <section class="card">
+    <h2>📌 Event Guidelines</h2>
+    <ul>
+      <li>ইভেন্টে অংশগ্রহণের আগে বিস্তারিত পড়ে নেবে।</li>
+      <li>অন্য সদস্যদের সম্মান করবে।</li>
+      <li>ব্যক্তিগত তথ্য প্রকাশে সতর্ক থাকবে।</li>
+      <li>অনুমতি ছাড়া অন্য কারও ছবি বা তথ্য শেয়ার করবে না।</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>❓ Event Help</h2>
+    <p>ইভেন্ট সম্পর্কে কোনো প্রশ্ন থাকলে Help পেজ দেখো।</p>
+    <a href="help.html">Help & Support →</a>
+  </section>
+
+  <section class="notice">
+    <strong>নোট:</strong> এটি একটি Demo Design।
+    এখানে কোনো বাস্তব ইভেন্ট তৈরি বা বুক করা যাচ্ছে না।
+    ইভেন্ট তৈরি, সদস্যদের নিবন্ধন ও নোটিফিকেশন চালু করতে
+    নিরাপদ Backend ও Database প্রয়োজন।
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 K.S SOCIAL. All Rights Reserved.</p>
+  <p>Connect • Share • Communicate</p>
+</footer>
+
+</body>
+</html>
