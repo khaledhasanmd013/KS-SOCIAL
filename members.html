@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Members - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4f9;
+      color: #172b4d;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background: #1769e0;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+    nav {
+      background: white;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 2px 8px #0001;
+    }
+    nav a {
+      color: #1769e0;
+      text-decoration: none;
+      margin: 8px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px #0000000c;
+    }
+    h2 { color: #1769e0; }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #ccd5e1;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+    .member {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e8edf4;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #dceaff;
+      color: #1769e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .member p {
+      margin: 5px 0;
+      color: #667085;
+    }
+    .note {
+      background: #fff6df;
+      color: #765400;
+      padding: 14px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: #667085;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>K.S SOCIAL</h1>
+  <p>Our Community Members</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="friends.html">Friends</a>
+  <a href="search.html">Search</a>
+</nav>
+
+<main>
+  <section class="card">
+    <h2>👥 Members Directory</h2>
+    <p>K.S SOCIAL কমিউনিটির সদস্য তালিকা।</p>
+    <div class="note">
+      Demo Notice: নিচের সদস্যরা উদাহরণ হিসেবে দেখানো হয়েছে। এখানে বাস্তব সদস্যদের তথ্য নেই।
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🔎 Find Members</h2>
+    <input type="search" placeholder="সদস্যের নাম দিয়ে খুঁজুন..." disabled>
+    <p>সদস্য খোঁজার সুবিধা ব্যাকএন্ড যুক্ত হলে চালু হবে।</p>
+  </section>
+
+  <section class="card">
+    <h2>Community Members</h2>
+
+    <div class="member">
+      <div class="avatar">A</div>
+      <div>
+        <strong>Example Member 01</strong>
+        <p>Demo Member</p>
+        <a href="profile.html">View Profile</a>
+      </div>
+    </div>
+
+    <div class="member">
+      <div class="avatar">B</div>
+      <div>
+        <strong>Example Member 02</strong>
+        <p>Demo Member</p>
+        <a href="profile.html">View Profile</a>
+      </div>
+    </div>
+
+    <div class="member">
+      <div class="avatar">C</div>
+      <div>
+        <strong>Example Member 03</strong>
+        <p>Demo Member</p>
+        <a href="profile.html">View Profile</a>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  © 2026 K.S SOCIAL
+</footer>
+
+</body>
+</html>
