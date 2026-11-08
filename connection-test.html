@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K.S SOCIAL - Connection Test</title>
+</head>
+<body>
+  <h1>K.S SOCIAL</h1>
+  <h2>Supabase Connection Test</h2>
+
+  <p id="status">Checking connection...</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="auth.js"></script>
+
+  <script>
+    const status = document.getElementById("status");
+
+    if (window.ksSupabase) {
+      status.textContent = "Supabase client loaded successfully.";
+    } else {
+      status.textContent = "Connection setup needs checking.";
+    }
+  </script>
+</body>
+</html>
