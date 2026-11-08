@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Meeting | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      color: #1d2b44;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    .meeting-link {
+      background: #eef4ff;
+      padding: 13px;
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+      color: #1769e0;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .participant {
+      background: #202b3d;
+      color: white;
+      min-height: 170px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: #1769e0;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+    }
+
+    button {
+      border: none;
+      padding: 11px 15px;
+      border-radius: 7px;
+      background: #1769e0;
+      color: white;
+      margin: 5px;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .danger {
+      background: #dc3545;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccd5e3;
+      border-radius: 7px;
+      margin: 8px 0;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 13px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #667085;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="dashboard.html">Home</a>
+    <a href="messages.html">Messages</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <h2>🎥 Video Meeting</h2>
+    <p>বন্ধুদের সঙ্গে গ্রুপ মিটিংয়ের ডিজাইন।</p>
+
+    <label for="meetingTitle">Meeting Name</label>
+    <input id="meetingTitle" type="text"
+      placeholder="Enter meeting name" disabled>
+
+    <button disabled>Create Meeting</button>
+
+    <h3>Meeting Link</h3>
+    <div class="meeting-link">
+      Meeting link will appear here after setup.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Meeting Room</h2>
+
+    <div class="video-grid">
+      <div class="participant">
+        <div class="avatar">👤</div>
+        <strong>Host</strong>
+        <small>Camera unavailable</small>
+      </div>
+
+      <div class="participant">
+        <div class="avatar">👤</div>
+        <strong>Participant 1</strong>
+        <small>Waiting to join</small>
+      </div>
+
+      <div class="participant">
+        <div class="avatar">👤</div>
+        <strong>Participant 2</strong>
+        <small>Waiting to join</small>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button disabled>🎤 Microphone</button>
+      <button disabled>📷 Camera</button>
+      <button disabled>🖥️ Share Screen</button>
+      <button class="danger" disabled>Leave Meeting</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Host Controls</h2>
+    <button disabled>Admit Participant</button>
+    <button disabled>Mute Participant</button>
+    <button disabled>End Meeting</button>
+  </section>
+
+  <section class="card">
+    <h2>💬 Meeting Chat</h2>
+    <div class="meeting-link">
+      Meeting messages will appear here.
+    </div>
+
+    <input type="text" placeholder="Write a message..." disabled>
+    <button disabled>Send Message</button>
+  </section>
+
+  <section class="notice">
+    <strong>গুরুত্বপূর্ণ:</strong> এটি আপাতত শুধু ডিজাইন বা Demo Page।
+    ভিডিও কল, মাইক্রোফোন, ক্যামেরা, স্ক্রিন শেয়ার এবং চ্যাট এখনো
+    কাজ করবে না। এগুলো চালু করতে WebRTC, নিরাপদ Signaling Server,
+    প্রয়োজন অনুযায়ী TURN Server এবং ব্যবহারকারীর Login/Permission
+    ব্যবস্থা তৈরি করতে হবে।
+  </section>
+
+</main>
+
+<footer>
+  © 2026 K.S SOCIAL. All Rights Reserved.
+</footer>
+
+</body>
+</html>
