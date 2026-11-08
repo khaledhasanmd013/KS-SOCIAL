@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation Management - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #123f87;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .card h2 {
+      color: #1769e0;
+      margin-top: 0;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #ccd5e2;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 11px 17px;
+      background: #1769e0;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      margin: 4px;
+    }
+
+    .danger {
+      background: #d93636;
+    }
+
+    .code-box {
+      background: #eef4ff;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: #e4f7e9;
+      color: #167a35;
+      font-size: 13px;
+    }
+
+    .notice {
+      background: #fff8df;
+      color: #765500;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    th {
+      background: #eef4ff;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      header nav a {
+        margin: 0 10px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>🎟️ K.S SOCIAL</h2>
+    <nav>
+      <a href="admin.html">Admin</a>
+      <a href="dashboard.html">Website</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <h1>Invitation Management</h1>
+    <p>Owner / Super Admin Invitation Control</p>
+
+    <section class="card">
+      <h2>🎟️ Create Invitation Code</h2>
+
+      <div class="field">
+        <label>Code Expiry Date</label>
+        <input type="date" disabled>
+      </div>
+
+      <div class="field">
+        <label>Usage Limit</label>
+        <select disabled>
+          <option>One Time Use</option>
+        </select>
+      </div>
+
+      <button class="btn" disabled>
+        Generate Invitation Code
+      </button>
+
+      <p class="notice">
+        Invitation code generation will be enabled after secure Owner authentication and backend setup.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>📋 Invitation Code Preview</h2>
+
+      <div class="code-box">
+        SAMPLE-CODE-0000
+      </div>
+
+      <p>Example only. This is not a valid invitation code.</p>
+    </section>
+
+    <section class="card">
+      <h2>📊 Invitation Statistics</h2>
+
+      <p>Total Codes: 0</p>
+      <p>Active Codes: 0</p>
+      <p>Used Codes: 0</p>
+      <p>Expired Codes: 0</p>
+      <p>Revoked Codes: 0</p>
+    </section>
+
+    <section class="card">
+      <h2>📝 Invitation History</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Status</th>
+              <th>Invited Member</th>
+              <th>Created By</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>No records</td>
+              <td><span class="status">N/A</span></td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button class="btn danger" disabled>
+        Revoke Invitation
+      </button>
+    </section>
+
+    <section class="card">
+      <h2>🔐 Invitation Security</h2>
+      <ul>
+        <li>Only the authenticated Owner can create codes.</li>
+        <li>Each invitation can be used only once.</li>
+        <li>Expired codes must not work.</li>
+        <li>Revoked codes must not work.</li>
+        <li>Invitation history must be recorded securely.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>
