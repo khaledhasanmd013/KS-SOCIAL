@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K.S SOCIAL - Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #183153;
+    }
+    header {
+      background: #1456b8;
+      color: white;
+      padding: 22px;
+    }
+    nav {
+      background: white;
+      padding: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav a {
+      color: #1456b8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main { padding: 20px; }
+    .notice, .card {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .notice { background: #fff4d6; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>K.S SOCIAL</h1>
+  <p>Owner & Admin Control Center</p>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#members">Members</a>
+  <a href="#invitations">Invitations</a>
+  <a href="#admins">Admin Roles</a>
+  <a href="#security">Security</a>
+  <a href="#recovery">Owner Recovery</a>
+</nav>
+
+<main>
+  <div class="notice">
+    <strong>Demo Dashboard:</strong>
+    এই পেজটি এখন পরীক্ষামূলক। এখনো বাস্তব Admin নিয়ন্ত্রণ চালু হয়নি।
+  </div>
+
+  <section id="overview">
+    <h2>Dashboard Overview</h2>
+    <div class="cards">
+      <div class="card">Total Members: --</div>
+      <div class="card">Active Invitations: --</div>
+      <div class="card">Admin Accounts: --</div>
+      <div class="card">Pending Reports: --</div>
+    </div>
+  </section>
+
+  <section id="members">
+    <h2>Member Management</h2>
+    <div class="card">সদস্য পরিচালনার ব্যবস্থা এখানে যুক্ত হবে।</div>
+  </section>
+
+  <section id="invitations">
+    <h2>Invitation Management</h2>
+    <div class="card">Invitation Code তৈরি ও বাতিলের ব্যবস্থা এখানে যুক্ত হবে।</div>
+  </section>
+
+  <section id="admins">
+    <h2>Admin Roles</h2>
+    <div class="card">Admin যোগ করা, ক্ষমতা পরিবর্তন ও সরানোর ব্যবস্থা এখানে যুক্ত হবে।</div>
+  </section>
+
+  <section id="security">
+    <h2>Security</h2>
+    <div class="card">নিরাপত্তা ও কার্যক্রমের ইতিহাস এখানে যুক্ত হবে।</div>
+  </section>
+
+  <section id="recovery">
+    <h2>Owner Account Recovery</h2>
+    <div class="card">
+      Owner Password Recovery ব্যবস্থা এখানে যুক্ত হবে।
+      এটি এখনো সক্রিয় নয়।
+    </div>
+  </section>
+</main>
+</body>
+</html>
