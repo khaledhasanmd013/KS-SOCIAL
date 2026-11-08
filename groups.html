@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groups | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #26354d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1769e0, #55a1ff);
+      color: white;
+      padding: 38px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .group-card {
+      background: white;
+      border: 1px solid #e5eaf2;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 10px #00000008;
+    }
+
+    .group-icon {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    .group-card h3 {
+      color: #1769e0;
+      margin: 5px 0;
+    }
+
+    .group-info {
+      color: #68758a;
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f1ff;
+      color: #1769e0;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    button {
+      background: #1769e0;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 7px;
+      margin-top: 10px;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="friends.html">Friends</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>👥 K.S SOCIAL Groups</h1>
+    <p>একই আগ্রহের মানুষের সঙ্গে যুক্ত হও।</p>
+  </section>
+
+  <section class="card">
+    <h2>🌟 Explore Groups</h2>
+    <p>তোমার পছন্দের কমিউনিটি খুঁজে নাও।</p>
+  </section>
+
+  <section class="group-grid">
+
+    <article class="group-card">
+      <div class="group-icon">💻</div>
+      <h3>Technology Club</h3>
+      <p>প্রযুক্তি, কম্পিউটার ও নতুন আবিষ্কার নিয়ে আলোচনা।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">Technology</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+    <article class="group-card">
+      <div class="group-icon">📚</div>
+      <h3>Education Community</h3>
+      <p>পড়াশোনা, জ্ঞান ও শেখার অভিজ্ঞতা ভাগ করে নাও।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">Education</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+    <article class="group-card">
+      <div class="group-icon">🎮</div>
+      <h3>Gaming Zone</h3>
+      <p>গেমিং নিয়ে আলোচনা ও অভিজ্ঞতা শেয়ার করো।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">Gaming</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+    <article class="group-card">
+      <div class="group-icon">⚽</div>
+      <h3>Sports Club</h3>
+      <p>খেলাধুলা ও বিভিন্ন স্পোর্টস নিয়ে আলোচনা।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">Sports</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+    <article class="group-card">
+      <div class="group-icon">🎨</div>
+      <h3>Creative Corner</h3>
+      <p>ডিজাইন, ছবি আঁকা ও সৃজনশীল কাজ শেয়ার করো।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">Creative</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+    <article class="group-card">
+      <div class="group-icon">🌍</div>
+      <h3>General Community</h3>
+      <p>বিভিন্ন বিষয় নিয়ে বন্ধুত্বপূর্ণ আলোচনা।</p>
+      <p class="group-info">সদস্য: Demo সংখ্যা</p>
+      <span class="tag">General</span>
+      <br>
+      <button disabled>Join Group</button>
+    </article>
+
+  </section>
+
+  <section class="card">
+    <h2>🛡️ Group Safety</h2>
+    <ul>
+      <li>সদস্যদের সম্মান করবে।</li>
+      <li>ব্যক্তিগত তথ্য প্রকাশ করবে না।</li>
+      <li>অনুমতি ছাড়া অন্যের ছবি বা তথ্য শেয়ার করবে না।</li>
+      <li>সমস্যা হলে Report পেজ ব্যবহার করবে।</li>
+    </ul>
+    <a href="report.html">Report a Problem →</a>
+  </section>
+
+  <section class="notice">
+    <strong>Demo Notice:</strong>
+    এই পেজটি বর্তমানে শুধু ডিজাইন।
+    Group তৈরি, Join, সদস্য তালিকা ও পোস্টের সুবিধা এখনো চালু হয়নি।
+    এগুলো চালু করতে নিরাপদ Backend ও Database প্রয়োজন।
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 K.S SOCIAL. All Rights Reserved.</p>
+  <p>Connect • Share • Communicate</p>
+</footer>
+
+</body>
+</html>
