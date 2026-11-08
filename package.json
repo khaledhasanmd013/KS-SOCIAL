@@ -1,3 +1,4 @@
+
 {
   "name": "ks-social",
   "version": "1.0.0",
@@ -14,6 +15,8 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "@supabase/supabase-js": "^2.0.0"
   }
 }
+
