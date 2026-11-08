@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Admin - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .contact-page {
+      min-height: 100vh;
+      padding: 55px 20px;
+      background: #f0f5ff;
+    }
+
+    .contact-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .contact-container h1 {
+      text-align: center;
+      color: #1769e0;
+      margin-bottom: 10px;
+    }
+
+    .contact-intro {
+      text-align: center;
+      color: #758098;
+      margin-bottom: 35px;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .method-card,
+    .message-box {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    }
+
+    .method-card {
+      text-align: center;
+    }
+
+    .method-card span {
+      font-size: 35px;
+    }
+
+    .method-card h3 {
+      color: #1769e0;
+      margin: 10px 0;
+    }
+
+    .message-box {
+      margin-top: 25px;
+    }
+
+    .message-box label {
+      display: block;
+      font-weight: bold;
+      margin: 15px 0 7px;
+    }
+
+    .message-box input,
+    .message-box textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #dce3ef;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .message-box textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-button {
+      margin-top: 18px;
+      padding: 13px 25px;
+      background: #1769e0;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: #1769e0;
+      text-decoration: none;
+    }
+
+    @media(max-width: 600px) {
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="contact-page">
+
+    <div class="contact-container">
+
+      <h1>Contact K.S SOCIAL</h1>
+
+      <p class="contact-intro">
+        Need help? Get in touch with the Admin.
+      </p>
+
+      <div class="contact-methods">
+
+        <div class="method-card">
+          <span>📧</span>
+          <h3>Email Support</h3>
+          <p>Contact our administration by email.</p>
+          <a href="mailto: khaledhasanmd013@gmail.com">
+            Send Email
+          </a>
+        </div>
+
+        <div class="method-card">
+          <span>📞</span>
+          <h3>Phone Support</h3>
+          <p>Contact the administrator by phone.</p>
+          <a href="tel:+8801723478918">
+            Call Admin
+          </a>
+        </div>
+
+      </div>
+
+      <div class="message-box">
+
+        <h2>Send a Message</h2>
+
+        <form action="#" method="post">
+
+          <label for="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          >
+
+          <label for="email">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          >
+
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            placeholder="Message subject"
+            required
+          >
+
+          <label for="message">Your Message</label>
+          <textarea
+            id="message"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+
+          <button type="submit" class="send-button">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+      <a href="index.html" class="back-link">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
