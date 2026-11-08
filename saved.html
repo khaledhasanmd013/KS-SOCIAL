@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Posts | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #26354d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1769e0, #55a1ff);
+      color: white;
+      padding: 35px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    .post {
+      border-bottom: 1px solid #e5eaf2;
+      padding: 18px 0;
+    }
+
+    .post:last-child {
+      border-bottom: none;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      background: #e4edff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+    }
+
+    .post-header p {
+      margin: 3px 0;
+      color: #697586;
+      font-size: 13px;
+    }
+
+    .post-content {
+      background: #f5f8fd;
+      padding: 18px;
+      border-radius: 9px;
+      margin: 12px 0;
+    }
+
+    button {
+      background: #1769e0;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 7px;
+      margin: 5px 5px 5px 0;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .empty {
+      text-align: center;
+      color: #697586;
+      padding: 20px;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>🔖 Saved Posts</h1>
+    <p>তোমার সংরক্ষণ করা পোস্টগুলো এক জায়গায়।</p>
+  </section>
+
+  <section class="card">
+    <h2>My Saved Posts</h2>
+
+    <article class="post">
+      <div class="post-header">
+        <div class="avatar">👤</div>
+        <div>
+          <strong>Demo User 1</strong>
+          <p>Example saved post</p>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>
+          বন্ধুত্ব, ভালোবাসা ও সুন্দর সম্পর্ক
+          আমাদের জীবনকে আরও আনন্দময় করে তোলে।
+        </p>
+      </div>
+
+      <button disabled>❤️ Like</button>
+      <button disabled>💬 Comment</button>
+      <button disabled>Remove Saved</button>
+    </article>
+
+    <article class="post">
+      <div class="post-header">
+        <div class="avatar">👤</div>
+        <div>
+          <strong>Demo User 2</strong>
+          <p>Example saved post</p>
+        </div>
+      </div>
+
+      <div class="post-content">
+        <p>
+          প্রতিদিন নতুন কিছু শেখা এবং
+          নিজের দক্ষতা বাড়ানোই উন্নতির পথ।
+        </p>
+      </div>
+
+      <button disabled>❤️ Like</button>
+      <button disabled>💬 Comment</button>
+      <button disabled>Remove Saved</button>
+    </article>
+
+    <div class="empty">
+      <p>উপরের পোস্টগুলো শুধু উদাহরণ। এগুলো বাস্তব ব্যবহারকারীর পোস্ট নয়।</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📌 Saved Posts সম্পর্কে</h2>
+    <ul>
+      <li>পছন্দের পোস্ট সংরক্ষণ করার সুবিধা থাকবে।</li>
+      <li>সংরক্ষিত পোস্ট পরে আবার দেখা যাবে।</li>
+      <li>প্রয়োজনে Saved তালিকা থেকে পোস্ট সরানো যাবে।</li>
+      <li>ব্যক্তিগত Saved তালিকা অন্যদের কাছে প্রকাশ করা উচিত নয়।</li>
+    </ul>
+  </section>
+
+  <section class="notice">
+    <strong>নোট:</strong> এটি বর্তমানে Demo Design।
+    Save ও Remove Saved বাটন কাজ করছে না।
+    বাস্তবে চালু করতে নিরাপদ Backend ও Database প্রয়োজন।
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 K.S SOCIAL. All Rights Reserved.</p>
+  <p>Connect • Share • Communicate</p>
+</footer>
+
+</body>
+</html>
