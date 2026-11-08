@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #123f87;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .welcome h2 {
+      color: #1769e0;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .stat-card h3 {
+      color: #1769e0;
+      margin-top: 0;
+    }
+
+    .stat-card strong {
+      font-size: 28px;
+    }
+
+    .admin-card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .admin-card h2 {
+      color: #1769e0;
+      margin-top: 0;
+    }
+
+    .admin-button {
+      display: inline-block;
+      background: #1769e0;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 7px;
+      margin: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .danger {
+      background: #d93636;
+    }
+
+    .notice {
+      background: #fff8df;
+      color: #765500;
+      padding: 13px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>👑 K.S SOCIAL ADMIN</h2>
+    <nav>
+      <a href="dashboard.html">Website</a>
+      <a href="profile.html">Profile</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="welcome">
+      <h2>Welcome, Owner!</h2>
+      <p>K.S SOCIAL Owner / Super Admin Dashboard</p>
+
+      <p class="notice">
+        Demo Admin Panel: Real administrator authentication is not connected yet.
+      </p>
+    </section>
+
+    <section class="stats">
+
+      <div class="stat-card">
+        <h3>👥 Total Members</h3>
+        <strong>0</strong>
+        <p>Registered members</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>📝 Total Posts</h3>
+        <strong>0</strong>
+        <p>Published posts</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>🎟️ Invitation Codes</h3>
+        <strong>0</strong>
+        <p>Active invitation codes</p>
+      </div>
+
+    </section>
+
+    <section class="admin-card">
+      <h2>🎟️ Invitation Management</h2>
+      <p>Create, expire and revoke invitation codes.</p>
+      <button class="admin-button" disabled>Create Invitation</button>
+      <button class="admin-button danger" disabled>Revoke Code</button>
+    </section>
+
+    <section class="admin-card">
+      <h2>👥 Member Management</h2>
+      <p>Review and manage registered members.</p>
+      <button class="admin-button" disabled>View Members</button>
+      <button class="admin-button danger" disabled>Suspend Member</button>
+    </section>
+
+    <section class="admin-card">
+      <h2>📝 Post Moderation</h2>
+      <p>Review reported posts and member content.</p>
+      <button class="admin-button" disabled>Review Reports</button>
+      <button class="admin-button danger" disabled>Remove Post</button>
+    </section>
+
+    <section class="admin-card">
+      <h2>📢 Admin Announcement</h2>
+      <p>Publish important announcements for members.</p>
+      <textarea
+        rows="4"
+        style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccd5e2;border-radius:8px;"
+        placeholder="Write an announcement..."
+        disabled
+      ></textarea>
+      <button class="admin-button" disabled>Publish Announcement</button>
+    </section>
+
+    <section class="admin-card">
+      <h2>⚙️ Website Settings</h2>
+      <p>Manage website settings and future updates.</p>
+      <button class="admin-button" disabled>Website Settings</button>
+      <button class="admin-button" disabled>Update History</button>
+      <button class="admin-button" disabled>Backup Management</button>
+    </section>
+
+  </main>
+
+</body>
+</html>
