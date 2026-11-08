@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .chat-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .chat-person {
+      padding: 13px 5px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 45px;
+      height: 45px;
+      background: #dceaff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+    }
+
+    .chat-person p {
+      margin: 5px 0 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .chat-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+    }
+
+    .chat-area {
+      min-height: 300px;
+      padding: 15px 0;
+    }
+
+    .empty {
+      text-align: center;
+      color: #777;
+      margin-top: 100px;
+    }
+
+    .message-input {
+      display: flex;
+      gap: 10px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+
+    .message-input input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px;
+      border: 1px solid #ccd5e2;
+      border-radius: 8px;
+    }
+
+    .message-input button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #1769e0;
+      color: white;
+      cursor: pointer;
+    }
+
+    .notice {
+      background: #fff8df;
+      color: #765500;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      .chat-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>K.S SOCIAL</h2>
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="friends.html">Friends</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <h2>💬 Messages</h2>
+
+    <div class="chat-layout">
+
+      <aside class="panel">
+        <h3>Chats</h3>
+
+        <div class="chat-person">
+          <div class="avatar">👤</div>
+          <div>
+            <strong>Example Member</strong>
+            <p>Offline</p>
+          </div>
+        </div>
+
+        <div class="chat-person">
+          <div class="avatar">👥</div>
+          <div>
+            <strong>Example Group</strong>
+            <p>Group Chat</p>
+          </div>
+        </div>
+
+        <p class="notice">
+          Your real conversations will appear here after backend setup.
+        </p>
+      </aside>
+
+      <section class="panel">
+
+        <div class="chat-header">
+          <h3>👤 Select a Conversation</h3>
+          <p>Private and Group Messages</p>
+        </div>
+
+        <div class="chat-area">
+          <p class="empty">
+            Select a friend to start chatting.
+          </p>
+        </div>
+
+        <form class="message-input">
+          <input
+            type="text"
+            placeholder="Type a message..."
+            disabled
+          >
+
+          <button type="button" disabled>
+            Send
+          </button>
+        </form>
+
+        <p class="notice">
+          Messaging is not active yet. Messages will work after secure backend development.
+        </p>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
