@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blocked Users | K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f4fa;
+      color: #26354d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 17px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      padding: 15px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1769e0, #55a1ff);
+      color: white;
+      padding: 35px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px #00000010;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5eaf2;
+      flex-wrap: wrap;
+    }
+
+    .user:last-child {
+      border-bottom: none;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #e4edff;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+    }
+
+    .user-info p {
+      margin: 3px 0;
+      color: #697586;
+      font-size: 13px;
+    }
+
+    button {
+      background: #1769e0;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 7px;
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .empty {
+      text-align: center;
+      color: #697586;
+      padding: 25px 10px;
+    }
+
+    .notice {
+      background: #fff4d6;
+      color: #725000;
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>🚫 Blocked Users</h1>
+    <p>তোমার ব্লক করা সদস্যদের তালিকা।</p>
+  </section>
+
+  <section class="card">
+    <h2>Blocked Members</h2>
+
+    <div class="user">
+      <div class="user-info">
+        <div class="avatar">👤</div>
+        <div>
+          <strong>Demo User 1</strong>
+          <p>Example blocked account</p>
+        </div>
+      </div>
+      <button disabled>Unblock</button>
+    </div>
+
+    <div class="user">
+      <div class="user-info">
+        <div class="avatar">👤</div>
+        <div>
+          <strong>Demo User 2</strong>
+          <p>Example blocked account</p>
+        </div>
+      </div>
+      <button disabled>Unblock</button>
+    </div>
+
+    <div class="empty">
+      <p>এগুলো শুধু উদাহরণ। বাস্তব Blocked Users তালিকা এখানে দেখানো হচ্ছে না।</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🔐 Blocking সম্পর্কে</h2>
+    <ul>
+      <li>ব্লক করা সদস্যের সঙ্গে যোগাযোগ সীমিত রাখার ব্যবস্থা থাকবে।</li>
+      <li>ভবিষ্যতে প্রয়োজন হলে Unblock করা যাবে।</li>
+      <li>ব্লক করার তথ্য ব্যক্তিগতভাবে সংরক্ষণ করা উচিত।</li>
+    </ul>
+  </section>
+
+  <section class="notice">
+    <strong>নোট:</strong> এটি একটি Demo Design।
+    Block ও Unblock বাটন এখনো কাজ করে না।
+    বাস্তবে চালু করতে Login System, Database এবং
+    নিরাপদ Backend প্রয়োজন।
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 K.S SOCIAL. All Rights Reserved.</p>
+  <p>Connect • Share • Communicate</p>
+</footer>
+
+</body>
+</html>
