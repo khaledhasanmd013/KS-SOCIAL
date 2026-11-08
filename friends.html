@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #f0f4fa;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #1769e0;
+      color: white;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 12px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px #00000010;
+    }
+
+    .search-box {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid #ccd5e2;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .member {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .member-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      background: #dceaff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+    }
+
+    .member h3 {
+      margin: 0 0 5px;
+    }
+
+    .member p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .action {
+      border: none;
+      background: #1769e0;
+      color: white;
+      padding: 9px 15px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    .action:disabled {
+      background: #9aaac0;
+      cursor: not-allowed;
+    }
+
+    .danger {
+      background: #d93636;
+    }
+
+    .notice {
+      background: #fff8df;
+      color: #765500;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 550px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      header nav a {
+        margin: 0 10px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>K.S SOCIAL</h2>
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <div class="card">
+      <h2>👥 Find Members</h2>
+      <p>Search members using their phone number.</p>
+
+      <input
+        class="search-box"
+        type="tel"
+        placeholder="Enter member phone number"
+        disabled
+      >
+
+      <p class="notice">
+        Member search will work after secure account and privacy systems are added.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>👤 My Friends</h2>
+
+      <div class="member">
+        <div class="member-info">
+          <div class="avatar">👤</div>
+          <div>
+            <h3>Example Member</h3>
+            <p>Friend</p>
+          </div>
+        </div>
+        <button class="action" disabled>View Profile</button>
+      </div>
+
+      <p>No real friends are displayed yet.</p>
+    </div>
+
+    <div class="card">
+      <h2>📩 Received Friend Requests</h2>
+
+      <p>No pending requests.</p>
+
+      <div class="member">
+        <div class="member-info">
+          <div class="avatar">👤</div>
+          <div>
+            <h3>Example Member</h3>
+            <p>Wants to connect with you</p>
+          </div>
+        </div>
+
+        <div>
+          <button class="action" disabled>Accept</button>
+          <button class="action danger" disabled>Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📤 Sent Friend Requests</h2>
+      <p>Your sent requests will appear here.</p>
+    </div>
+
+    <div class="card">
+      <h2>🔒 Blocked Members</h2>
+      <p>Members you block will appear here.</p>
+      <p class="notice">
+        Blocking and reporting will be connected to the backend later.
+      </p>
+    </div>
+
+  </main>
+
+</body>
+</html>
