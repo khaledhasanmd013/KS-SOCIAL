@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #eaf2ff, #eee8ff);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 420px;
+      background: white;
+      padding: 38px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+
+    .login-box h1 {
+      text-align: center;
+      color: #1769e0;
+      margin-bottom: 8px;
+    }
+
+    .login-box p {
+      text-align: center;
+      color: #758098;
+      margin-bottom: 28px;
+    }
+
+    .login-box label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #dce3ef;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+
+    .login-submit {
+      width: 100%;
+      margin-top: 23px;
+      padding: 14px;
+      border: none;
+      border-radius: 9px;
+      background: #1769e0;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-submit:hover {
+      background: #1055bd;
+    }
+
+    .login-links {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login-links a {
+      color: #1769e0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #1769e0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="login-page">
+
+    <div class="login-box">
+
+      <h1>K.S SOCIAL</h1>
+
+      <p>Welcome back! Login to your account.</p>
+
+      <form id="loginForm">
+
+        <label for="phone">Mobile Number</label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter your mobile number"
+          required
+        >
+
+        <label for="password">Password</label>
+
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        >
+
+        <button type="submit" class="login-submit">
+          Login
+        </button>
+
+      </form>
+
+      <div class="login-links">
+        Don't have an account?
+        <a href="register.html">Register</a>
+      </div>
+
+      <a href="index.html" class="back-home">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
+
