@@ -49,94 +49,113 @@
       background: #f2f6fc;
       border-radius: 10px;
     }
+
+    #profileBio {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h2>K.S SOCIAL</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="contact.html">Contact Admin</a>
-    </nav>
-  </header>
+<header>
+  <h2>K.S SOCIAL</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="contact.html">Contact Admin</a>
+  </nav>
+</header>
 
-  <main class="profile">
+<main class="profile">
 
-    <div class="avatar">👤</div>
+  <div class="avatar">👤</div>
 
-    <h1 id="profileName">Loading...</h1>
-    <p id="profileEmail">Loading profile...</p>
-    <p>Friends: 0</p>
+  <h1 id="profileName">Loading...</h1>
+  <p id="profileEmail">Loading profile...</p>
+  <p id="profileBio">Loading Bio...</p>
 
-    <div class="profile-actions">
-      <a href="settings.html">Edit Profile</a>
-      <a href="dashboard.html">Dashboard</a>
-    </div>
+  <p>Friends: 0</p>
 
-    <div class="post-box">
-      <h2>My Posts</h2>
-      <p>No posts yet.</p>
-    </div>
+  <div class="profile-actions">
+    <a href="settings.html">Edit Profile</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
 
-  </main>
+  <div class="post-box">
+    <h2>My Posts</h2>
+    <p>No posts yet.</p>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase-config.js"></script>
+</main>
 
-  <script>
-    async function loadProfile() {
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
 
-      const nameElement =
-        document.getElementById("profileName");
+<script>
+async function loadProfile() {
 
-      const emailElement =
-        document.getElementById("profileEmail");
+  const nameElement = document.getElementById("profileName");
+  const emailElement = document.getElementById("profileEmail");
+  const bioElement = document.getElementById("profileBio");
 
-      try {
+  try {
 
-        const supabase = window.ksSupabase;
+    const supabase = window.ksSupabase;
 
-        if (!supabase) {
-          nameElement.textContent = "Connection error";
-          emailElement.textContent =
-            "Supabase configuration not found.";
-          return;
-        }
-
-        const {
-          data: { user },
-          error
-        } = await supabase.auth.getUser();
-
-        if (error || !user) {
-          window.location.href = "login.html";
-          return;
-        }
-
-        const name =
-          user.user_metadata?.full_name ||
-          user.user_metadata?.name ||
-          user.email?.split("@")[0] ||
-          "K.S SOCIAL User";
-
-        nameElement.textContent = name;
-        emailElement.textContent = user.email || "";
-
-      } catch (error) {
-
-        nameElement.textContent = "Profile could not load";
-        emailElement.textContent =
-          "Please refresh the page.";
-
-        console.error(error);
-      }
+    if (!supabase) {
+      nameElement.textContent = "Connection error";
+      emailElement.textContent = "Supabase is not configured.";
+      bioElement.textContent = "";
+      return;
     }
 
-    loadProfile();
-  </script>
+    const {
+      data: { user },
+      error
+    } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const { data: profile, error: profileError } =
+      await supabase
+        .from("profiles")
+        .select("display_name, bio")
+        .eq("id", user.id)
+        .maybeSingle();
+
+    if (profileError) {
+      throw profileError;
+    }
+
+    const name =
+      profile?.display_name ||
+      user.user_metadata?.full_name ||
+      user.email?.split("@")[0] ||
+      "K.S SOCIAL User";
+
+    nameElement.textContent = name;
+    emailElement.textContent = user.email || "";
+    bioElement.textContent =
+      profile?.bio || "আপনার পরিচিতি এখনো যোগ করা হয়নি।";
+
+  } catch (error) {
+
+    console.error("Profile error:", error);
+
+    nameElement.textContent = "Profile could not load";
+    emailElement.textContent = "Please refresh the page.";
+    bioElement.textContent = "";
+
+  }
+}
+
+loadProfile();
+</script>
 
 </body>
 </html>
