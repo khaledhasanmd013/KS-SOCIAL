@@ -45,6 +45,7 @@
     }
 
     .login-box input {
+      box-sizing: border-box;
       width: 100%;
       padding: 13px;
       border: 1px solid #dce3ef;
@@ -67,6 +68,11 @@
 
     .login-submit:hover {
       background: #1055bd;
+    }
+
+    .login-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
     }
 
     .login-links {
@@ -94,9 +100,11 @@
       margin-top: 22px;
     }
 
-    #recoveryMessage {
+    #recoveryMessage,
+    #loginMessage {
       font-size: 14px;
       overflow-wrap: anywhere;
+      text-align: center;
     }
   </style>
 </head>
@@ -111,11 +119,12 @@
 
       <form id="loginForm">
 
-        <label for="phone">Mobile Number</label>
+        <label for="email">Email Address</label>
         <input
-          type="tel"
-          id="phone"
-          placeholder="Enter your mobile number"
+          type="email"
+          id="email"
+          placeholder="Enter your email address"
+          autocomplete="email"
           required
         >
 
@@ -124,12 +133,15 @@
           type="password"
           id="password"
           placeholder="Enter your password"
+          autocomplete="current-password"
           required
         >
 
         <button type="submit" class="login-submit">
           Login
         </button>
+
+        <p id="loginMessage" role="status"></p>
 
       </form>
 
@@ -157,6 +169,53 @@
 
   <script>
     const OWNER_EMAIL = "khaledhasanmd013@gmail.com";
+
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email")
+        .value.trim();
+
+      const password = document.getElementById("password")
+        .value;
+
+      const message = document.getElementById("loginMessage");
+      const button = loginForm.querySelector(
+        'button[type="submit"]'
+      );
+
+      if (!window.ksSupabase) {
+        message.textContent =
+          "Supabase connection পাওয়া যায়নি।";
+        return;
+      }
+
+      button.disabled = true;
+      message.textContent = "Login হচ্ছে...";
+
+      try {
+        const { data, error } =
+          await window.ksSupabase.auth.signInWithPassword({
+            email: email,
+            password: password
+          });
+
+        if (error) throw error;
+
+        message.textContent = "Login সফল হয়েছে।";
+
+        window.location.href = "dashboard.html";
+
+      } catch (error) {
+        message.textContent =
+          "Login সমস্যা: " + error.message;
+
+      } finally {
+        button.disabled = false;
+      }
+    });
 
     document.getElementById("forgotPassword")
       .addEventListener("click", async function(event) {
