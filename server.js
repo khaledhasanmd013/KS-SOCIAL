@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 
+// Security
 app.use(helmet());
 
 app.use(cors({
@@ -18,6 +19,9 @@ app.use(express.json({
 
 // Supabase connection
 const supabaseAdmin = require("./supabase-server");
+
+// Invitation routes
+const invitationRoutes = require("./invitation-routes");
 
 // Backend status
 app.get("/api/status", (req, res) => {
@@ -43,6 +47,7 @@ app.get("/api/db-check", async (req, res) => {
 
     if (error) {
       console.error("Database check failed.");
+
       return res.status(503).json({
         app: "K.S SOCIAL",
         database: "Not connected",
@@ -65,6 +70,9 @@ app.get("/api/db-check", async (req, res) => {
   }
 });
 
+// Invitation API
+app.use("/api/invitations", invitationRoutes);
+
 // Unknown routes
 app.use((req, res) => {
   res.status(404).json({
@@ -72,6 +80,7 @@ app.use((req, res) => {
   });
 });
 
+// Start server
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
@@ -79,3 +88,4 @@ app.listen(PORT, () => {
     `K.S SOCIAL server running on port ${PORT}`
   );
 });
+
