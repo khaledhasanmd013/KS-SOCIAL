@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
     const email = document.getElementById("email").value.trim();
-    const invite = document.getElementById("invite").value.trim().toUpperCase();
+    const invite = document.getElementById("invite")
+      .value.trim().toUpperCase();
     const password = document.getElementById("password").value;
 
-    if (!name || !phone || !email || !invite || !password) {
+    if (!name || !email || !invite || !password) {
       message.textContent = "সব তথ্য পূরণ করো।";
       return;
     }
@@ -30,11 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (password.length < 8) {
-      message.textContent = "Password কমপক্ষে ৮ অক্ষরের হতে হবে।";
+      message.textContent =
+        "Password কমপক্ষে ৮ অক্ষরের হতে হবে।";
       return;
     }
 
-    const button = form.querySelector('button[type="submit"]');
+    const button = form.querySelector(
+      'button[type="submit"]'
+    );
+
     button.disabled = true;
     message.textContent = "Invitation যাচাই হচ্ছে...";
 
@@ -56,11 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!response.ok || !result.valid) {
         throw new Error(
-          result.message || result.error || "Invitation Code গ্রহণযোগ্য নয়।"
+          result.message ||
+          result.error ||
+          "Invitation Code গ্রহণযোগ্য নয়।"
         );
       }
 
-      message.textContent = "Invitation সঠিক। Signup প্রস্তুত হচ্ছে...";
+      message.textContent = "অ্যাকাউন্ট তৈরি হচ্ছে...";
 
       const { error } =
         await window.ksSupabase.auth.signUp({
@@ -69,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
           options: {
             data: {
               full_name: name,
-              phone: phone,
               invitation_code: invite
             }
           }
@@ -78,10 +83,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (error) throw error;
 
       message.textContent =
-        "Signup অনুরোধ পাঠানো হয়েছে। Email verification সম্পন্ন করো।";
+        "Signup অনুরোধ সফল হয়েছে। Email verification সম্পন্ন করো।";
 
     } catch (error) {
-      message.textContent = "সমস্যা: " + error.message;
+      message.textContent =
+        "সমস্যা: " + error.message;
+
     } finally {
       button.disabled = false;
     }
