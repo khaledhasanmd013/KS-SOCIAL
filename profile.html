@@ -64,6 +64,7 @@
   </header>
 
   <main class="profile">
+
     <div class="avatar">👤</div>
 
     <h1 id="profileName">Loading...</h1>
@@ -79,27 +80,36 @@
       <h2>My Posts</h2>
       <p>No posts yet.</p>
     </div>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="supabase.js"></script>
+  <script src="supabase-config.js"></script>
 
   <script>
     async function loadProfile() {
-      const nameElement = document.getElementById("profileName");
-      const emailElement = document.getElementById("profileEmail");
+
+      const nameElement =
+        document.getElementById("profileName");
+
+      const emailElement =
+        document.getElementById("profileEmail");
 
       try {
+
         const supabase = window.ksSupabase;
 
         if (!supabase) {
           nameElement.textContent = "Connection error";
-          emailElement.textContent = "Supabase is not configured.";
+          emailElement.textContent =
+            "Supabase configuration not found.";
           return;
         }
 
-        const { data: { user }, error } =
-          await supabase.auth.getUser();
+        const {
+          data: { user },
+          error
+        } = await supabase.auth.getUser();
 
         if (error || !user) {
           window.location.href = "login.html";
@@ -116,8 +126,12 @@
         emailElement.textContent = user.email || "";
 
       } catch (error) {
+
         nameElement.textContent = "Profile could not load";
-        emailElement.textContent = "Please refresh the page.";
+        emailElement.textContent =
+          "Please refresh the page.";
+
+        console.error(error);
       }
     }
 
