@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification - K.S SOCIAL</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fc;
+    }
+
+    .confirm-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .confirm-box {
+      width: 100%;
+      max-width: 430px;
+      padding: 35px 25px;
+      background: white;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,.08);
+    }
+
+    h1 {
+      color: #1769e0;
+    }
+
+    #status {
+      color: #526078;
+      line-height: 1.7;
+      margin: 20px 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 13px 25px;
+      background: #1769e0;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="confirm-page">
+    <section class="confirm-box">
+
+      <h1>K.S SOCIAL</h1>
+
+      <h2>Email Verification</h2>
+
+      <p id="status">
+        Email Verification পরীক্ষা করা হচ্ছে...
+      </p>
+
+      <a href="login.html">Go to Login</a>
+
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const status = document.getElementById("status");
+
+      try {
+        if (!window.ksSupabase) {
+          throw new Error("Supabase connection not found.");
+        }
+
+        const { data, error } =
+          await window.ksSupabase.auth.getSession();
+
+        if (error) throw error;
+
+        if (data.session) {
+          status.textContent =
+            "তোমার Email Verification সফল হয়েছে। এখন Login করতে পারো।";
+        } else {
+          status.textContent =
+            "Verification Link পরীক্ষা করা হয়েছে। Login করার আগে Email Confirmed হয়েছে কি না নিশ্চিত করো।";
+        }
+
+      } catch (error) {
+        status.textContent =
+          "Verification Status পরীক্ষা করা যায়নি। আবার Login করে দেখো।";
+      }
+    });
+  </script>
+
+</body>
+</html>
