@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("registerForm");
   const message = document.createElement("p");
@@ -73,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
           email: email,
           password: password,
           options: {
+            emailRedirectTo:
+              "https://khaledhasanmd013.github.io/KS-SOCIAL/confirm.html",
             data: {
               full_name: name,
               invitation_code: invite
