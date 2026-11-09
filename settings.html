@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings - K.S SOCIAL</title>
+  <title>Edit Profile - K.S SOCIAL</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
     body {
       margin: 0;
@@ -13,61 +13,85 @@
       color: #172b4d;
       font-family: Arial, sans-serif;
     }
+
     header {
       background: #1769e0;
       color: white;
       text-align: center;
-      padding: 22px;
+      padding: 20px;
     }
+
     nav {
       background: white;
       padding: 14px;
       text-align: center;
-      box-shadow: 0 2px 8px #0001;
     }
+
     nav a {
       color: #1769e0;
       text-decoration: none;
       margin: 8px;
       font-weight: bold;
     }
+
     main {
-      max-width: 750px;
+      max-width: 650px;
       margin: 25px auto;
       padding: 0 15px;
     }
+
     .card {
       background: white;
-      padding: 20px;
-      margin-bottom: 18px;
+      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 3px 12px #0000000c;
+      box-shadow: 0 3px 12px #00000010;
     }
+
     h2 { color: #1769e0; }
-    .setting {
-      padding: 15px 0;
-      border-bottom: 1px solid #e8edf4;
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-weight: bold;
     }
-    .setting:last-child { border: none; }
-    .setting p {
-      color: #667085;
-      margin-bottom: 5px;
-    }
-    select {
-      padding: 10px;
+
+    input, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin-top: 8px;
       border: 1px solid #ccd5e1;
       border-radius: 7px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
       width: 100%;
-      max-width: 280px;
-      background: white;
+      padding: 13px;
+      margin-top: 22px;
+      background: #1769e0;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
     }
-    .notice {
-      background: #fff6df;
-      padding: 14px;
-      border-radius: 8px;
+
+    button:disabled {
+      opacity: 0.6;
+    }
+
+    #message {
+      margin-top: 15px;
       line-height: 1.6;
-      color: #765400;
     }
+
     footer {
       text-align: center;
       padding: 22px;
@@ -75,99 +99,206 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>K.S SOCIAL</h1>
-  <p>Account Settings</p>
+  <p>Edit Your Profile</p>
 </header>
-
 
 <nav>
   <a href="index.html">Home</a>
   <a href="dashboard.html">Dashboard</a>
   <a href="profile.html">Profile</a>
-  <a href="friends.html">Friends</a>
-  <a href="messages.html">Messages</a>
-  <a href="members.html">Members</a>
   <a href="settings.html">Settings</a>
-  <a href="security.html">Security</a>
-  <a href="privacy.html">Privacy</a>
 </nav>
-
 
 <main>
   <section class="card">
-    <h2>⚙️ General Settings</h2>
-    <p>আপনার অ্যাকাউন্টের সাধারণ সেটিংস এখানে সাজানো থাকবে।</p>
-    <div class="notice">
-      Demo Notice: এই পেজের সেটিংসগুলো এখন শুধু প্রদর্শনের জন্য। পরিবর্তনগুলো সংরক্ষিত হচ্ছে না।
-    </div>
-  </section>
 
-  <section class="card">
-    <h2>👤 Profile Settings</h2>
-    <div class="setting">
-      <strong>Edit Profile</strong>
-      <p>নাম, পরিচিতি ও প্রোফাইল তথ্য পরিবর্তন।</p>
-    </div>
-    <div class="setting">
-      <strong>Profile Photo</strong>
-      <p>প্রোফাইল ছবির সেটিংস।</p>
-    </div>
-  </section>
+    <h2>👤 Edit Profile</h2>
+    <p>আপনার নাম ও নিজের পরিচিতি পরিবর্তন করুন।</p>
 
-  <section class="card">
-    <h2>🔔 Notification Settings</h2>
-    <div class="setting">
-      <strong>Friend Requests</strong>
-      <p>বন্ধুত্বের অনুরোধের নোটিফিকেশন।</p>
-    </div>
-    <div class="setting">
-      <strong>Messages</strong>
-      <p>নতুন মেসেজের নোটিফিকেশন।</p>
-    </div>
-    <div class="setting">
-      <strong>Post Activity</strong>
-      <p>লাইক ও কমেন্টের নোটিফিকেশন।</p>
-    </div>
-  </section>
+    <form id="profileForm">
 
-  <section class="card">
-    <h2>🌐 Language</h2>
-    <div class="setting">
-      <strong>Choose Language</strong>
-      <p>ওয়েবসাইটের ভাষা নির্বাচন করুন।</p>
-      <select disabled>
-        <option>বাংলা</option>
-        <option>English</option>
-      </select>
-    </div>
-  </section>
+      <label for="displayName">আপনার নাম</label>
+      <input
+        type="text"
+        id="displayName"
+        maxlength="50"
+        required
+        placeholder="আপনার নাম লিখুন"
+      >
 
-  <section class="card">
-    <h2>🎨 Appearance</h2>
-    <div class="setting">
-      <strong>Theme</strong>
-      <p>ওয়েবসাইটের রঙ ও থিম নির্বাচন।</p>
-      <select disabled>
-        <option>Light Mode</option>
-        <option>Dark Mode</option>
-      </select>
-    </div>
-  </section>
+      <label for="bio">নিজের পরিচিতি (Bio)</label>
+      <textarea
+        id="bio"
+        maxlength="160"
+        placeholder="নিজের সম্পর্কে কিছু লিখুন"
+      ></textarea>
 
-  <section class="card">
-    <h2>🔐 Privacy & Security</h2>
-    <p>আপনার অ্যাকাউন্টের নিরাপত্তা ও গোপনীয়তা নিয়ন্ত্রণ করুন।</p>
-    <p><a href="privacy.html">Privacy Settings</a></p>
-    <p><a href="security.html">Security Center</a></p>
+      <button type="submit" id="saveButton">
+        Save Profile
+      </button>
+
+    </form>
+
+    <p id="message"></p>
+
   </section>
 </main>
 
 <footer>
   © 2026 K.S SOCIAL
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
+<script>
+  const form = document.getElementById("profileForm");
+  const nameInput = document.getElementById("displayName");
+  const bioInput = document.getElementById("bio");
+  const message = document.getElementById("message");
+  const saveButton = document.getElementById("saveButton");
+
+  let currentUser = null;
+
+  async function loadProfile() {
+    try {
+      const supabase = window.ksSupabase;
+
+      if (!supabase) {
+        message.textContent = "Supabase connection failed.";
+        return;
+      }
+
+      const {
+        data: { user },
+        error
+      } = await supabase.auth.getUser();
+
+      if (error || !user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      currentUser = user;
+
+      const { data: profile, error: profileError } =
+        await supabase
+          .from("profiles")
+          .select("display_name, bio")
+          .eq("id", user.id)
+          .maybeSingle();
+
+      if (profileError) {
+        message.textContent =
+          "Profile loading failed. Please try again.";
+        return;
+      }
+
+      nameInput.value =
+        profile?.display_name ||
+        user.user_metadata?.full_name ||
+        user.email?.split("@")[0] ||
+        "";
+
+      bioInput.value = profile?.bio || "";
+
+    } catch (error) {
+      message.textContent = "Something went wrong.";
+      console.error(error);
+    }
+  }
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    if (!currentUser) {
+      message.textContent = "Please log in first.";
+      return;
+    }
+
+    const displayName = nameInput.value.trim();
+    const bio = bioInput.value.trim();
+
+    if (displayName.length < 2) {
+      message.textContent =
+        "নাম কমপক্ষে ২ অক্ষরের হতে হবে।";
+      return;
+    }
+
+    saveButton.disabled = true;
+    saveButton.textContent = "Saving...";
+    message.textContent = "";
+
+    try {
+      const supabase = window.ksSupabase;
+
+      const { data: existingProfile, error: checkError } =
+        await supabase
+          .from("profiles")
+          .select("id")
+          .eq("id", currentUser.id)
+          .maybeSingle();
+
+      if (checkError) {
+        throw checkError;
+      }
+
+      let saveResult;
+
+      if (existingProfile) {
+        saveResult = await supabase
+          .from("profiles")
+          .update({
+            display_name: displayName,
+            bio: bio
+          })
+          .eq("id", currentUser.id);
+      } else {
+        saveResult = await supabase
+          .from("profiles")
+          .insert({
+            id: currentUser.id,
+            display_name: displayName,
+            bio: bio
+          });
+      }
+
+      if (saveResult.error) {
+        throw saveResult.error;
+      }
+
+      const { error: authError } =
+        await supabase.auth.updateUser({
+          data: {
+            full_name: displayName
+          }
+        });
+
+      if (authError) {
+        message.textContent =
+          "Profile saved, but name synchronization failed. Please refresh and try again.";
+      } else {
+        message.textContent =
+          "সফলভাবে আপনার Profile সংরক্ষণ হয়েছে!";
+      }
+
+    } catch (error) {
+      console.error(error);
+      message.textContent =
+        "Save failed. Please try again.";
+    }
+
+    saveButton.disabled = false;
+    saveButton.textContent = "Save Profile";
+  });
+
+  loadProfile();
+</script>
 
 </body>
 </html>
