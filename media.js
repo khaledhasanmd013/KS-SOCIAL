@@ -1,86 +1,49 @@
 
-document.addEventListener("DOMContentLoaded", function () {
-  const fileInput = document.getElementById("mediaFile");
-  const preview = document.getElementById("preview");
-  const status = document.getElementById("status");
+const mediaFile = document.getElementById("mediaFile");
+const preview = document.getElementById("preview");
+const status = document.getElementById("status");
 
-  if (!fileInput || !preview || !status) {
-    console.warn("K.S SOCIAL media elements not found.");
+mediaFile.addEventListener("change", function () {
+  const file = mediaFile.files[0];
+
+  preview.innerHTML = "";
+
+  if (!file) {
+    status.textContent = "কোনো ফাইল নির্বাচন করা হয়নি।";
     return;
   }
 
-  let currentPreviewUrl = null;
+  if (file.size > 20 * 1024 * 1024) {
+    status.textContent = "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।";
+    mediaFile.value = "";
+    return;
+  }
 
-  fileInput.addEventListener("change", function () {
-    const file = fileInput.files[0];
+  const url = URL.createObjectURL(file);
 
-    preview.innerHTML = "";
+  if (file.type.startsWith("image/")) {
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "Image Preview";
+    preview.appendChild(img);
 
-    if (currentPreviewUrl) {
-      URL.revokeObjectURL(currentPreviewUrl);
-      currentPreviewUrl = null;
-    }
+  } else if (file.type.startsWith("video/")) {
+    const video = document.createElement("video");
+    video.src = url;
+    video.controls = true;
+    preview.appendChild(video);
 
-    if (!file) {
-      status.textContent = "কোনো ফাইল নির্বাচন করা হয়নি।";
-      return;
-    }
+  } else if (file.type.startsWith("audio/")) {
+    const audio = document.createElement("audio");
+    audio.src = url;
+    audio.controls = true;
+    preview.appendChild(audio);
 
-    const allowedExtensions = [
-      "pdf", "doc", "docx", "xls", "xlsx", "txt"
-    ];
+  } else {
+    preview.textContent = "নির্বাচিত ফাইল: " + file.name;
+  }
 
-    const extension = file.name.split(".").pop().toLowerCase();
-
-    const validType =
-      file.type.startsWith("image/") ||
-      file.type.startsWith("video/") ||
-      file.type.startsWith("audio/") ||
-      allowedExtensions.includes(extension);
-
-    if (!validType) {
-      status.textContent = "এই ফাইলের ধরন সমর্থিত নয়।";
-      fileInput.value = "";
-      return;
-    }
-
-    const maxSize = 20 * 1024 * 1024;
-
-    if (file.size > maxSize) {
-      status.textContent = "ফাইলের আকার ২০ MB-এর বেশি হতে পারবে না।";
-      fileInput.value = "";
-      return;
-    }
-
-    currentPreviewUrl = URL.createObjectURL(file);
-
-    if (file.type.startsWith("image/")) {
-      const image = document.createElement("img");
-      image.src = currentPreviewUrl;
-      image.alt = "Selected image";
-      image.style.maxWidth = "100%";
-      preview.appendChild(image);
-
-    } else if (file.type.startsWith("video/")) {
-      const video = document.createElement("video");
-      video.src = currentPreviewUrl;
-      video.controls = true;
-      video.style.maxWidth = "100%";
-      preview.appendChild(video);
-
-    } else if (file.type.startsWith("audio/")) {
-      const audio = document.createElement("audio");
-      audio.src = currentPreviewUrl;
-      audio.controls = true;
-      preview.appendChild(audio);
-
-    } else {
-      const documentInfo = document.createElement("p");
-      documentInfo.textContent = "নির্বাচিত ডকুমেন্ট: " + file.name;
-      preview.appendChild(documentInfo);
-    }
-
-    status.textContent =
-      "ফাইল নির্বাচন সফল হয়েছে। এখনো সার্ভারে আপলোড করা হয়নি।";
-  });
+  status.textContent =
+    "ফাইলের প্রিভিউ প্রস্তুত। এখনো সার্ভারে আপলোড হয়নি।";
 });
+
