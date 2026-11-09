@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Sharing - K.S SOCIAL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    h2 { text-align: center; }
+    .upload-box {
+      border: 2px dashed #888;
+      padding: 25px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    input, button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #1877f2;
+      color: white;
+      border: 0;
+      border-radius: 6px;
+    }
+    #preview { margin-top: 20px; }
+    #preview img, #preview video {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>K.S SOCIAL Media Sharing</h2>
+    <p>ছবি, ভিডিও, অডিও ও ডকুমেন্ট শেয়ার করুন।</p>
+
+    <div class="upload-box">
+      <input type="file" id="mediaFile"
+        accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.xls,.xlsx,.txt">
+      <button onclick="previewFile()">ফাইল নির্বাচন করুন</button>
+    </div>
+
+    <div id="preview"></div>
+    <p id="status">ফাইল আপলোড সুবিধা শিগগিরই যুক্ত হবে।</p>
+  </div>
+
+  <script>
+    function previewFile() {
+      const file = document.getElementById("mediaFile").files[0];
+      const preview = document.getElementById("preview");
+
+      preview.innerHTML = "";
+
+      if (!file) {
+        alert("প্রথমে একটি ফাইল নির্বাচন করুন।");
+        return;
+      }
+
+      const url = URL.createObjectURL(file);
+      const type = file.type;
+
+      if (type.startsWith("image/")) {
+        preview.innerHTML = `<img src="${url}" alt="Preview">`;
+      } else if (type.startsWith("video/")) {
+        preview.innerHTML = `<video src="${url}" controls></video>`;
+      } else if (type.startsWith("audio/")) {
+        preview.innerHTML = `<audio src="${url}" controls></audio>`;
+      } else {
+        preview.textContent = "নির্বাচিত ফাইল: " + file.name;
+      }
+
+      document.getElementById("status").textContent =
+        "ফাইল প্রিভিউ প্রস্তুত। এটি এখনো সার্ভারে আপলোড হয়নি।";
+    }
+  </script>
+</body>
+</html>
