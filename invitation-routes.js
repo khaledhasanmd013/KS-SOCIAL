@@ -5,7 +5,7 @@ const crypto = require("crypto");
 const router = express.Router();
 const supabaseAdmin = require("./supabase-server");
 
-// Verify Admin using Supabase JWT
+// Verify Admin
 async function requireAdmin(req, res, next) {
   try {
     const authHeader = req.headers.authorization;
@@ -17,7 +17,6 @@ async function requireAdmin(req, res, next) {
     }
 
     const token = authHeader.split(" ")[1];
-
     const { data, error } =
       await supabaseAdmin.auth.getUser(token);
 
@@ -43,6 +42,38 @@ async function requireAdmin(req, res, next) {
   }
 }
 
+// Verify logged-in user
+async function requireUser(req, res, next) {
+  try {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({
+        error: "Login required."
+      });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    const { data, error } =
+      await supabaseAdmin.auth.getUser(token);
+
+    if (error || !data.user) {
+      return res.status(401).json({
+        error: "Invalid login session."
+      });
+    }
+
+    req.user = data.user;
+    next();
+
+  } catch (error) {
+    return res.status(401).json({
+      error: "Authentication failed."
+    });
+  }
+}
+
 // Create invitation - Admin only
 router.post("/create", requireAdmin, async (req, res) => {
   try {
@@ -56,7 +87,7 @@ router.post("/create", requireAdmin, async (req, res) => {
     const { error } = await supabaseAdmin
       .from("invitations")
       .insert({
-        code: code,
+        code,
         expires_at: expiresAt.toISOString()
       });
 
@@ -68,7 +99,7 @@ router.post("/create", requireAdmin, async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      code: code,
+      code,
       expires_at: expiresAt.toISOString()
     });
 
@@ -101,7 +132,7 @@ router.post("/validate", async (req, res) => {
       .maybeSingle();
 
     if (error || !data) {
-      return res.status(200).json({
+      return res.json({
         valid: false,
         message: "Invitation is invalid."
       });
@@ -112,9 +143,9 @@ router.post("/validate", async (req, res) => {
       new Date(data.expires_at).getTime() <= Date.now();
 
     if (data.revoked || data.used_at || expired) {
-      return res.status(200).json({
+      return res.json({
         valid: false,
-        message: "Invitation is expired or unavailable."
+        message: "Invitation is unavailable."
       });
     }
 
@@ -131,4 +162,52 @@ router.post("/validate", async (req, res) => {
   }
 });
 
+// Redeem invitation - Logged-in user
+router.post("/redeem", requireUser, async (req, res) => {
+  try {
+    const code =
+      typeof req.body.code === "string"
+        ? req.body.code.trim().toUpperCase()
+        : "";
+
+    if (!/^KS-[A-F0-9]{16}$/.test(code)) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid invitation code."
+      });
+    }
+
+    const { data, error } = await supabaseAdmin
+      .rpc("redeem_invitation", {
+        p_code: code
+      });
+
+    if (error) {
+      return res.status(500).json({
+        success: false,
+        error: "Invitation redemption failed."
+      });
+    }
+
+    if (data !== true) {
+      return res.status(400).json({
+        success: false,
+        error: "Invitation is invalid, expired, used or revoked."
+      });
+    }
+
+    return res.json({
+      success: true,
+      message: "Invitation redeemed successfully."
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: "Redemption failed."
+    });
+  }
+});
+
 module.exports = router;
+
