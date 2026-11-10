@@ -1,5 +1,6 @@
-conconsole.log("Supabase library:", window.supabase);
+console.log("Supabase library:", window.supabase);
 console.log("Supabase client:", window.ksSupabase);
+
 const mediaFile = document.getElementById("mediaFile");
 const preview = document.getElementById("preview");
 const status = document.getElementById("status");
@@ -10,8 +11,25 @@ mediaFile.addEventListener("change", async function () {
 
   if (!file) return;
 
-  if (file.size > 20 * 1024 * 1024) {
-    status.textContent = "ফাইল ২০ MB-এর বেশি হতে পারবে না।";
+  const MB = 1024 * 1024;
+
+  let maxSize = 100 * MB;
+  let fileType = "ডকুমেন্ট";
+
+  if (file.type.startsWith("image/")) {
+    maxSize = 20 * MB;
+    fileType = "ছবি";
+  } else if (file.type.startsWith("video/")) {
+    maxSize = 1024 * MB;
+    fileType = "ভিডিও";
+  } else if (file.type.startsWith("audio/")) {
+    maxSize = 100 * MB;
+    fileType = "অডিও";
+  }
+
+  if (file.size > maxSize) {
+    status.textContent =
+      fileType + " ফাইলের সর্বোচ্চ সীমা অতিক্রম করেছে।";
     mediaFile.value = "";
     return;
   }
@@ -58,7 +76,7 @@ mediaFile.addEventListener("change", async function () {
 
   status.textContent = "ফাইল আপলোড হচ্ছে...";
 
-  const { data, error } = await supabase.storage
+  const { error } = await supabase.storage
     .from("ks-social-media")
     .upload(filePath, file, {
       cacheControl: "3600",
@@ -72,4 +90,3 @@ mediaFile.addEventListener("change", async function () {
 
   status.textContent = "ফাইল সফলভাবে আপলোড হয়েছে!";
 });
-
