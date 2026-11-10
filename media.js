@@ -1,4 +1,5 @@
-console.log("Supabase:", window.ksSupabase);
+conconsole.log("Supabase library:", window.supabase);
+console.log("Supabase client:", window.ksSupabase);
 const mediaFile = document.getElementById("mediaFile");
 const preview = document.getElementById("preview");
 const status = document.getElementById("status");
